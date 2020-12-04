@@ -35,8 +35,10 @@
                                 class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
-                        <span class="fa fa-sign-in"></span> Login</a>
+                    
+                        <span class="fa fa-sign-in modal-header">
+                            <a id="login">Login</a>
+                        </span> 
                 </span>
             </div>
         </div>
@@ -46,8 +48,8 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Login </h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Login </h3>
+                    <button type="button" class="close" id="loginhide">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -71,9 +73,9 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto"
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto modal-header"
                                 data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1 modal-header">Sign in</button>
                         </div>
                     </form>
                 </div>
@@ -94,8 +96,7 @@
                 </div>
                 <div class="col-12 col-sm-3">
                     <span class="navbar-hand">
-                        <a role="button" class="btn btn-block nav-link btn-warning" data-toggle="modal" 
-                            data-target="#reserveform">Reserve Table</a>
+                        <a role="button" id ="Reserve" class="btn btn-block nav-link btn-warning" >Reserve Table</a>
                     </span>
                         
                 </div>
@@ -163,7 +164,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title"> Reserve A Table</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" id="reservehide">&times;</button>
                 </div>
                 <div class="modal-body">
                         <form>
@@ -310,6 +311,20 @@
                 $("#carouselButton").children("span").removeClass('fa-play');
                 $("#carouselButton").children("span").addClass('fa-pause');                    
             }
+        });
+        $(document).ready(function(){
+            $('#Reserve').click( function () {
+                $('#reserveform').modal('show')
+            });
+            $('#reservehide').click( function () {
+                $('#reserveform').modal('hide')
+            });
+            $('#login').click( function () {
+                $('#loginModal').modal('show')
+            });
+            $('#loginhide').click( function () {
+                $('#loginModal').modal('hide')
+            });
         });
     </script>
 
